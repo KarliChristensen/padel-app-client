@@ -31,11 +31,15 @@ export default function Home() {
           <PlayersMainpage />
         </div>
         <br></br>
-        <div>
-          <h1 className="text-center text-2xl font-bold">Available Courts:</h1>
-          <CourtsMainpage />
-        </div>
+        <div className="hidden">
+          <div>
+            <h1 className="text-center text-2xl font-bold">
+              Available Courts:
+            </h1>
+            <CourtsMainpage />
+          </div>
         <br></br>
+        </div>
         <div>
           <h1 className="text-center text-2xl font-bold">Popular Teams:</h1>
           <TeamsMainPage />

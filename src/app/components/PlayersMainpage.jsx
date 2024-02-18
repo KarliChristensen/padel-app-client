@@ -9,11 +9,8 @@ const PlayersMainpage = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
 
   const getPlayers = async () => {
-    const response = await axios.get(`http://localhost:5005/api/players`, {
-      params: {
-        limit: 5,
-      },
-    });
+    const response = await axios.get(`${process.env.SERVER}/players`),
+      data = response.data;
     setPlayers(response.data.slice(0, 5));
   };
 

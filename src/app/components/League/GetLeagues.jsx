@@ -124,7 +124,7 @@ const GetLeagues = () => {
                 ) : (
                   <label
                     htmlFor="my-drawer-4"
-                    className="drawer-button btn btn-secondary w-2/3 text-white mb-4 ml-2"
+                    className="drawer-button btn btn-secondary w-2/3 text-white mb-4"
                   >
                     Join
                   </label>

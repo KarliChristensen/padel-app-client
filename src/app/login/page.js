@@ -53,11 +53,10 @@ export default function loginPage() {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center bg-gray-100">
+    <div className="bg-gray-100 pt-10 flex justify-center h-screen w-full">
       <form onSubmit={handleSubmit} className="w-4/5 ">
         <div
-          className=" box-border flex flex-col items-center m-10 gap-10 bg-white shadow-sm md:mx-20  p-5 "
-          style={{ minHeight: "800px" }}
+          className="box-border flex flex-col items-center gap-10 bg-white shadow-sm md:mx-20 p-5"
         >
           <h2 className="mt-6 text-neutral text-xl font-bold">Welcome back!</h2>
 

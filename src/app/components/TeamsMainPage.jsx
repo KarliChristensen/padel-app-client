@@ -7,7 +7,7 @@ const TeamsMainPage = () => {
   const [numTeamsDisplayed, setNumTeamsDisplayed] = useState(5);
 
   const getTeams = async () => {
-    const response = await axios.get(`http://localhost:5005/api/teams`);
+    const response = await axios.get(`${process.env.SERVER}/teams`);
     setTeams(response.data);
   };
 

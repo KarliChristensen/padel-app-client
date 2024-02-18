@@ -86,9 +86,9 @@ export default function DisplayImages() {
   };
 
   return (
-    <div className="bg-gray-100 flex justify-center h-full drawer drawer-end">
+    <div className="flex bg-gray-100 justify-center w-full h-full drawer drawer-end">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-      <div className=" bg-white shadow-lg p-10 w-full md:w-3/4 mt-10 drawer-content">
+      <div className="flex flex-col justify-content bg-white shadow-lg p-10 md:w-3/4 mt-10 drawer-content">
         <h1 className="text-2xl text-primary-focus font-bold mb-10 text-center">
           Check out our gallery
         </h1>
@@ -112,17 +112,20 @@ export default function DisplayImages() {
             </div>
           ))}
         </Slider>
-
-        <h3 className="mt-20 text-gray-500 ">Have some nice photos to add?</h3>
-        <label
-          htmlFor="my-drawer-4"
-          className="drawer-button btn btn-outline btn-success  w-1/4 text-white mb-4 mt-4 ml-2 "
-        >
-          Please log in first
-        </label>
+        <div className="flex flex-col justify-content-center items-center">
+          <h3 className="mt-10 text-gray-500 text-center">
+            Have you got photos to add?
+          </h3>
+          <label
+            htmlFor="my-drawer-4"
+            className="drawer-button btn btn-outline btn-success w-1/3 text-white mt-4"
+          >
+            Please log in first
+          </label>
+        </div>
         {isLoggedIn && (
           <div className="flex flex-col items-center  ">
-            <div className=" shadow-lg rounded-lg p-6 flex flex-col justify-center items-center">
+            <div className=" shadow-lg rounded-lg p-6 mt-6 flex flex-col justify-center items-center">
               <p className="text-gray-600 mb-2">Upload file:</p>
               <input
                 type="file"

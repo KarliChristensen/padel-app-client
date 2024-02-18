@@ -7,7 +7,7 @@ const LeagueDetailsModal = ({ league, onClose }) => {
 
   const handleRedirectToLeague = () => {
     const leagueId = league._id;
-    window.location.href = `http://localhost:3000/leagues/details/${leagueId}`;
+    window.location.href = `${process.env.SERVER}/leagues/details/${leagueId}`;
   };
 
   return (

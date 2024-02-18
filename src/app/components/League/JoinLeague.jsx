@@ -44,16 +44,16 @@ const JoinLeague = ({ leagueId, playerId }) => {
     <>
       <button
         onClick={handleJoinLeague}
-        className="btn btn-secondary w-2/3 text-white mb-4 ml-2"
+        className="btn btn-secondary w-2/3 text-white mb-4"
       >
         Join
       </button>
       {message ? (
-        <p className="text-success font-semibold text-center mr-2 mb-2">
+        <p className="text-success font-semibold text-center mb-2">
           {message}
         </p>
       ) : errorMessage ? (
-        <p className="text-error font-semibold text-center mr-2 mb-2">
+        <p className="text-error font-semibold text-center mb-2">
           {errorMessage}
         </p>
       ) : (

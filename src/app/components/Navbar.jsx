@@ -9,14 +9,14 @@ const Navbar = () => {
   const { isLoggedIn, player, logOutPlayer } = useContext(AuthContext);
   return (
     <nav
-      className={`navbar lg:static lg:top-0 fixed bottom-0 justify-between bg-neutral text-white  w-screen z-10`}
+      className={`navbar flex fixed bottom-0 justify-between bg-neutral text-white w-screen z-10 lg:static lg:top-0`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-screen ml-0 mr-0">
+      <div className="px-6 sm:px-6 lg:px-8 w-screen">
         <div className="flex items-center justify-between h-16 w-screen ">
           <div className="flex-shrink-0 ">
             <Link href="/" className="text-white font-bold">
               <img
-                className="w-14"
+                className="w-14 rounded-md"
                 src="https://www.usaclicosenza.it/wp-content/uploads/2021/04/Padel-League-Logo.jpeg"
                 alt="App logo"
               ></img>
@@ -26,7 +26,7 @@ const Navbar = () => {
             <div className="ml-10 flex items-center space-x-4 flex-shrink-0">
               <Link
                 href="/rules"
-                className="text-gray-300 hover:bg-neutral-focus hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                className="text-gray-300 hover:bg-neutral-focus hover:text-white px-3 py-2 rounded-md text-md font-medium hidden md:block lg:block"
               >
                 Padel Rules
               </Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
               </Link>
               <Link
                 href="/gallery"
-                className="text-gray-300 hover:bg-neutral-focus hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                className="text-gray-300 hover:bg-neutral-focus hover:text-white px-3 py-2 rounded-md text-md font-medium hidden sm:block md:block lg:block"
               >
                 Gallery
               </Link>
@@ -78,8 +78,7 @@ const Navbar = () => {
               {isLoggedIn && (
                 <Link href="/player">
                   <div className="w-16 text-center text-gray-300 hover:bg-neutral-focus hover:text-white px-2 py-2 rounded-md text-sm font-medium flex flex-col flex-shrink-0">
-                    <img src="https://t3.ftcdn.net/jpg/05/16/27/58/240_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg" />
-                    <span>Profile</span>
+                    <img className="rounded-full" src="https://t3.ftcdn.net/jpg/05/16/27/58/240_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg" />
                   </div>
                 </Link>
               )}

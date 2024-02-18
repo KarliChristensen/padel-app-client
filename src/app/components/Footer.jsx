@@ -2,13 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer items-center p-4 bg-neutral text-neutral-content hidden lg:block ">
+    <footer className="footer fixed bottom-0 items-center p-4 bg-neutral text-neutral-content hidden lg:block ">
       {/* <footer className="footer items-center p-4 bg-neutral text-neutral-content hidden lg:block"> */}
       <div className="items-center flex-col">
         <p>Created by: Andrea, Gereon & Karli</p>
-        <p>The Padel App © 2023 - All right reserved.</p>
+        <p>The Padel App © 2023 - All rights reserved.</p>
       </div>
-      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <div className="flex mt-3">
         <a>
           <svg
             xmlns="http://www.w3.org/2000/svg"
