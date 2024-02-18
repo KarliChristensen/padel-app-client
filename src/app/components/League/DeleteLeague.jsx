@@ -10,7 +10,7 @@ const DeleteLeague = ({ leagueId }) => {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:5005/api/leagues/${leagueId}`)
+      .delete(`${process.env.SERVER}/leagues/${leagueId}`)
       .then(() => {
         console.log("League deleted");
         setMessage("League deleted!");

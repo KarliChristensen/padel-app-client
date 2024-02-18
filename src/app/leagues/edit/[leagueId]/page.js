@@ -30,7 +30,7 @@ export default function leagueDetailsPage() {
   useEffect(() => {
     if (leagueId) {
       axios
-        .get(`http://localhost:5005/api/leagues/${leagueId}`)
+        .get(`${process.env.SERVER}/leagues/${leagueId}`)
         .then((response) => {
           setLeagueDetails(response.data);
 
@@ -55,7 +55,7 @@ export default function leagueDetailsPage() {
     };
 
     axios
-      .put(`http://localhost:5005/api/leagues/${leagueId}`, requestBody)
+      .put(`${process.env.SERVER}/leagues/${leagueId}`, requestBody)
       .then((response) => {
         console.log(response);
         setName("");

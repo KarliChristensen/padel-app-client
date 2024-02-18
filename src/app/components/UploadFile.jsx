@@ -17,7 +17,7 @@ const FileUpload = () => {
 
   const handleSendClick = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/api/s3/url");
+      const response = await axios.get(`${process.env.SERVER}/s3/url`);
       const awsURL = response.data.uploadURL;
       console.log("awsURL", awsURL);
 

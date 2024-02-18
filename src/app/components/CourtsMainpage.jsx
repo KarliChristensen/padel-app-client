@@ -9,7 +9,7 @@ function CourtsMainpage() {
   const [buttonClicked, setButtonClicked] = useState(false);
 
   const getCourts = async () => {
-    const response = await axios.get("http://localhost:5005/api/courts", {
+    const response = await axios.get(`${process.env.SERVER}/courts`, {
       params: {
         limit: 5,
       },

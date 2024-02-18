@@ -29,7 +29,7 @@ function Rules() {
     },
     {
       imgUrl: "sliderRulesPics/Leagues.png",
-      text: 'What now? Just join one of the many leagues you can find here or connect with an already existing team here:<a href="http://localhost:3000/leagues" target="_blank"> Leagues </a> ',
+      text: `What now? Just join one of the many leagues you can find here or connect with an already existing team here:<a href=${process.env.SERVER}/leagues target="_blank"> Leagues </a>`,
     },
   ];
 

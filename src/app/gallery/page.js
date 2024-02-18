@@ -28,7 +28,7 @@ export default function DisplayImages() {
   };
 
   const updateGallery = () => {
-    axios.get("http://localhost:5005/api/s3/images").then((response) => {
+    axios.get(`${process.env.SERVER}/s3/images`).then((response) => {
       console.log("responsa data", response.data.images);
       setImages(response.data.images);
     });
@@ -45,7 +45,7 @@ export default function DisplayImages() {
 
   const handleSendClick = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/api/s3/url");
+      const response = await axios.get(`${process.env.SERVER}/s3/url`);
       const awsURL = response.data.uploadURL;
       console.log("awsURL", awsURL);
 
@@ -63,7 +63,7 @@ export default function DisplayImages() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/api/s3/images")
+      .get(`${process.env.SERVER}/s3/images`)
       .then((response) => {
         console.log("responsa data", response.data.images);
         setImages(response.data.images);
@@ -74,7 +74,7 @@ export default function DisplayImages() {
   }, []);
 
   const getImageURL = (imageName) => {
-    return `http://localhost:5005/api/s3/image/${imageName}`;
+    return `${process.env.SERVER}/s3/image/${imageName}`;
   };
 
   const settings = {

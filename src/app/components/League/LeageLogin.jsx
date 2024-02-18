@@ -34,7 +34,7 @@ const LeagueLogin = () => {
     };
 
     axios
-      .post("http://localhost:5005/api/auth/login", body)
+      .post(`${process.env.SERVER}/auth/login`, body)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         storedToken(response.data.authToken);

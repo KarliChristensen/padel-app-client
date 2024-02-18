@@ -13,7 +13,7 @@ const JoinLeague = ({ leagueId, playerId }) => {
   const handleJoinLeague = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5005/api/leagues/${leagueId}/join`,
+        `${process.env.SERVER}/leagues/${leagueId}/join`,
         { playerId }
       );
       setMessage("Your are now part of this league");

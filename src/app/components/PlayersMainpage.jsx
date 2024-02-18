@@ -9,7 +9,7 @@ const PlayersMainpage = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
 
   const getPlayers = async () => {
-    const response = await axios.get("http://localhost:5005/api/players", {
+    const response = await axios.get(`http://localhost:5005/api/players`, {
       params: {
         limit: 5,
       },

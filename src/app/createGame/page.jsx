@@ -90,7 +90,7 @@ const CreateGame = () => {
       formData.matchType === "League Game" ? formData.leagues : null;
 
     try {
-      const gameRes = await axios.post("http://localhost:5005/api/games", {
+      const gameRes = await axios.post(`${process.env.SERVER}/games`, {
         date: formData.date,
         courts: formData.courts,
         score: formData.score,
@@ -130,7 +130,7 @@ const CreateGame = () => {
 
   const fetchExistingPlayers = async () => {
     try {
-      const res = await axios.get("http://localhost:5005/api/players");
+      const res = await axios.get("${process.env.SERVER}/players");
       setExistingPlayers(res.data);
     } catch (error) {
       console.error(error);
@@ -139,7 +139,7 @@ const CreateGame = () => {
 
   const fetchExistingCourts = async () => {
     try {
-      const res = await axios.get("http://localhost:5005/api/courts");
+      const res = await axios.get(`${process.env.SERVER}/courts`);
       setExistingCourts(res.data);
     } catch (error) {
       console.error(error);
@@ -151,7 +151,7 @@ const CreateGame = () => {
       const leagueIdsString = playerLeagueIds.join(",");
 
       const response = await axios.get(
-        `http://localhost:5005/api/leagues?playerId=${playerId}&playerLeagueId=${leagueIdsString}`
+        `${process.env.SERVER}/leagues?playerId=${playerId}&playerLeagueId=${leagueIdsString}`
       );
 
       const leagues = response.data;

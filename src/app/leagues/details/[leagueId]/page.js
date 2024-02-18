@@ -15,7 +15,7 @@ export default function LeagueDetailsPage() {
   useEffect(() => {
     if (leagueId) {
       axios
-        .get(`http://localhost:5005/api/leagues/${leagueId}`)
+        .get(`${process.env.SERVER}/leagues/${leagueId}`)
         .then((response) => {
           setLeagueDetails(response.data);
         })

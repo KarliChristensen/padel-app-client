@@ -17,7 +17,7 @@ export default function LeaguesProviderWrapper({ children }) {
   }, []);
 
   const updateLeagues = () => {
-    axios.get("http://localhost:5005/api/leagues").then((response) => {
+    axios.get(`${process.env.SERVER}/leagues`).then((response) => {
       console.log("Leagues data", response.data);
       setLeagues(response.data);
     });
