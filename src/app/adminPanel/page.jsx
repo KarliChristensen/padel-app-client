@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import TeamsMainPage from "../components/TeamsMainPage";
-import AdminPlayers from "../components/adminPanel/AdminPlayersOverview";
+import AdminPlayers from "../components/AdminPanel/AdminPlayersOverview";
 import AddLeague from "../components/League/AddLeague";
-import AdminPlayersCreate from "../components/adminPanel/AdminPlayersCreate";
+import AdminPlayersCreate from "../components/AdminPanel/AdminPlayersCreate";
 
 function AdminPage() {
   const { isLoggedIn } = useContext(AuthContext);
