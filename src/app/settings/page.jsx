@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import React from "react";
-import Sidebar from "@/app/components/Sidebar";
+/* import Sidebar from "@/app/components/Sidebar"; */
 
 function page() {
   const [nationality, setNationality] = useState("");
@@ -76,7 +76,6 @@ function page() {
   };
   return (
     <div className="flex justify-evenly h-full">
-      <Sidebar />
       <div className="bg-slate-200 md:mb-10 text-black h-full grow">
         <div className="join join-vertical w-full">
           <div className="collapse collapse-arrow join-item border-base-300">
@@ -288,7 +287,6 @@ function page() {
           </div>
         </div>
       </div>
-      <Sidebar />
     </div>
   );
 }
