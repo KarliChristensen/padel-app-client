@@ -22,7 +22,6 @@ function AdminPage() {
     if (!isLoggedIn) {
       router.push("/login");
     } else if (!playerData && !isLoading) {
-      setIsLoading(true);
       getPlayerData();
     }
   }, [isLoggedIn, playerData, isLoading]);
