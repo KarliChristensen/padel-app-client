@@ -21,11 +21,11 @@ function AdminPage() {
   useEffect(() => {
     if (!isLoggedIn) {
       router.push("/login");
+    } else if (!playerData && !isLoading) {
+      setIsLoading(true);
+      getPlayerData();
     }
-  }, []);
-  if (!isLoggedIn) {
-    return null;
-  }
+  }, [isLoggedIn, playerData, isLoading]);
 
   const handleLeagueToggle = () => {
     setShowLeagues(!showLeagues);
