@@ -17,8 +17,7 @@ const Singles = lazy(() => import("../components/Player/Singles"));
 const TeamMates = lazy(() => import("../components/Player/TeamMates"));
 
 const Page = () => {
-  const { playerData, getPlayerData, isLoggedIn, player } =
-    useContext(AuthContext);
+  const { playerData, getPlayerData, isLoggedIn } = useContext(AuthContext);
   const router = useRouter();
   const [winningStreak, setWinningStreak] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -27,12 +26,13 @@ const Page = () => {
     "https://t3.ftcdn.net/jpg/05/16/27/58/240_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg";
 
   useEffect(() => {
-    if (player) {
-      getPlayerData();
-    } else {
+    if (!isLoggedIn) {
       router.push("/login");
+    } else if (!playerData) {
+      // Add a check to ensure playerData is not already fetched
+      getPlayerData();
     }
-  }, [player]);
+  }, [isLoggedIn, playerData]);
 
   useEffect(() => {
     if (playerData && playerData.games) {

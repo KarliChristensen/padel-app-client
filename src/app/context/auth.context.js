@@ -11,6 +11,7 @@ export default function AuthProviderWrapper({ children }) {
   const [isLoading, setIsLoading] = useState(true);
   const [player, setPlayer] = useState(null);
   const [playerData, setPlayerData] = useState("");
+  const isDataFetchedRef = useRef(false);
 
   const storedToken = (token) => {
     localStorage.setItem("authToken", token);
@@ -52,20 +53,22 @@ export default function AuthProviderWrapper({ children }) {
   };
 
   const getPlayerData = () => {
-    if (player) {
-      const playerId = player._id;
-      axios
-        .get(`${process.env.SERVER}/players/${playerId}`)
-        .then((response) => {
-          console.log("Player data", response.data);
-          setPlayerData(response.data);
-        })
-        .catch((error) => {
-          console.log("Error fetching player data", error);
-        });
+    if (!isDataFetchedRef.current) {
+      if (player) {
+        const playerId = player._id;
+        axios
+          .get(`${process.env.SERVER}/players/${playerId}`)
+          .then((response) => {
+            console.log("Player data", response.data);
+            setPlayerData(response.data);
+            isDataFetchedRef.current = true; // Set the ref to true after fetching data
+          })
+          .catch((error) => {
+            console.log("Error fetching player data", error);
+          });
+      }
     }
   };
-
   useEffect(() => {
     authenticatePlayer();
   }, []);
