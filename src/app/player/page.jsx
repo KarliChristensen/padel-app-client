@@ -27,12 +27,6 @@ const Page = () => {
     "https://t3.ftcdn.net/jpg/05/16/27/58/240_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg";
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      router.push("/login");
-    }
-  }, [isLoggedIn]);
-
-  useEffect(() => {
     if (playerData && playerData.games) {
       let currentStreak = 0;
       let longestStreak = 0;
