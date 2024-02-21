@@ -17,7 +17,8 @@ const Singles = lazy(() => import("../components/Player/Singles"));
 const TeamMates = lazy(() => import("../components/Player/TeamMates"));
 
 const Page = () => {
-  const { playerData, getPlayerData, isLoggedIn } = useContext(AuthContext);
+  const { playerData, getPlayerData, isLoggedIn, player } =
+    useContext(AuthContext);
   const router = useRouter();
   const [winningStreak, setWinningStreak] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +33,7 @@ const Page = () => {
       // Add a check to ensure playerData is not already fetched
       getPlayerData();
     }
-  }, [isLoggedIn, playerData]);
+  }, [isLoggedIn, playerData]); // Add playerData to the dependency array
 
   useEffect(() => {
     if (playerData && playerData.games) {
@@ -56,8 +57,6 @@ const Page = () => {
       setIsLoading(false); // Set loading to false once the data is fetched
     }
   }, [playerData]);
-
-  console.log(playerData);
 
   return (
     <div className="flex justify-center items-center w-full bg-white md:bg-base-100 lg:bg-base-100">
