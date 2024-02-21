@@ -54,7 +54,7 @@ export default function AuthProviderWrapper({ children }) {
   const getPlayerData = () => {
     if (player) {
       const playerId = player._id;
-      return axios
+      axios
         .get(`${process.env.SERVER}/players/${playerId}`)
         .then((response) => {
           console.log("Player data", response.data);
@@ -62,11 +62,10 @@ export default function AuthProviderWrapper({ children }) {
         })
         .catch((error) => {
           console.log("Error fetching player data", error);
-          // handle error appropriately
         });
     }
   };
-  
+
   useEffect(() => {
     authenticatePlayer();
   }, []);

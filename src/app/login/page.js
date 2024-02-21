@@ -16,12 +16,10 @@ export default function loginPage() {
     useContext(AuthContext);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && router.pathname !== "/player") {
       router.push("/player");
     }
-  }, [isLoggedIn]);
-  if (isLoggedIn) {
-  }
+  }, [isLoggedIn, router.pathname]);
 
   useEffect(() => {
     // Prefetch the dashboard page
@@ -55,9 +53,7 @@ export default function loginPage() {
   return (
     <div className="bg-gray-100 pt-10 flex justify-center h-screen w-full">
       <form onSubmit={handleSubmit} className="w-4/5 ">
-        <div
-          className="box-border flex flex-col items-center gap-10 bg-white shadow-sm md:mx-20 p-5"
-        >
+        <div className="box-border flex flex-col items-center gap-10 bg-white shadow-sm md:mx-20 p-5">
           <h2 className="mt-6 text-neutral text-xl font-bold">Welcome back!</h2>
 
           <div className="flex flex-col ">
