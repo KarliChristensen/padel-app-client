@@ -31,7 +31,7 @@ const Page = () => {
     } else {
       getPlayerData();
     }
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     if (playerData && playerData.games) {
