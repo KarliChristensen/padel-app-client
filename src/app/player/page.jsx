@@ -17,7 +17,7 @@ const Singles = lazy(() => import("../components/Player/Singles"));
 const TeamMates = lazy(() => import("../components/Player/TeamMates"));
 
 const Page = () => {
-  const { playerData, getPlayerData, isLoggedIn } = useContext(AuthContext);
+  const { playerData, getPlayerData, isLoggedIn, player} = useContext(AuthContext);
   const router = useRouter();
   const [winningStreak, setWinningStreak] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,10 +28,11 @@ const Page = () => {
   useEffect(() => {
     if (!isLoggedIn) {
       router.push("/login");
-    } else {
+    } else if (!playerData) {
+      // Add a check to ensure playerData is not already fetched
       getPlayerData();
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, playerData]);
 
   useEffect(() => {
     if (playerData && playerData.games) {
